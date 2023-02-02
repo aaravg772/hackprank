@@ -1,9 +1,9 @@
 from setuptools import setup, find_packages
 
 
-VERSION = '0.3.0'
+VERSION = '0.3.2'
 DESCRIPTION = 'A Python Package Full Of Fake Hacking Programs To Prank Your Friends'
-LONG_DESCRIPTION = 'A Package That Lets You Easily Trick Your Friends And Prank Them With Fake Hacking Programs\n Versions 0.3.0 Adds New Website You Can Lauch With The New hackprank.hackWeb module'
+LONG_DESCRIPTION = 'A Package That Lets You Easily Trick Your Friends And Prank Them With Fake Hacking Programs\n Versions 0.3.2 Adds New Website You Can Lauch With The New hackprank.hackWeb module'
 
 # Setting up
 setup(
