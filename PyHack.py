@@ -7,7 +7,36 @@ from rich.progress import Progress, track
 from time import sleep
 from os import *
 from colorama import *
+import random
 
+def nukeShutDown():
+    for x in track(range(25),"Initializing..."):
+        sleep(0.1)
+    country = Prompt.ask("Which Country's Nukes Do You Want To Shutdown")
+    for x in track(range(100), "Bypassing Government Mainframe"):
+        sleep(0.1)
+    for x in track(range(100), f"Gathering Information About {country}"):
+        sleep(0.1)
+    with Progress(transient=True) as prog:
+        locate = prog.add_task("Locating Nuke Control Systems", total=300)
+        hacking = prog.add_task("Hacking Government Systems", total=500)
+        nHacking = prog.add_task("Hacking Nuclear Controls", total=900)
+        while not prog.finished:
+            prog.update(hacking,advance=0.4)
+            prog.update(locate,advance=0.7)
+            prog.update(nHacking,advance=0.5)
+            sleep(0.1)
+    con.print("Hacked Nuclear Contorols", style="bold green")
+    for x in track(range(100), "Preparing Nuclear Systems Shutdown"):
+        sleep(0.1)
+    with Progress(transient=True) as prog:
+        exploite = prog.add_task("Exploting Nuclear System", total=300)
+        selfDestruct = prog.add_task("Self Destructing", total=900)
+        while not prog.finished:
+            prog.advance(exploite, 0.5)
+            prog.advance(selfDestruct, 0.7)
+            sleep(0.1)
+    con.print(f"{country.title()} Nuclear Systems Destoyed")
 
 def web_hacking():
     for x in track(range(25),"Initializing..."):
@@ -110,7 +139,7 @@ def find():
         while not prog.finished:
             prog.update(master, advance=0.5)
             sleep(0.1)
-    con.print("Master Key: 0x1bx1a6x20 \nIP: 125.67.43.88", style="bold green")
+    con.print(f"Master Key: 0x1bx1a6x20 \nIP: {f'{random.randrange(125, 225)}.{random.randrange(1, 225)}.{random.randrange(1, 225)}.{random.randrange(1, 225)}'}", style="bold green")
     return
     
 
@@ -132,6 +161,65 @@ def remote():
     con.print(f"{ip} Successfully Shutdown", style="bold green")
     con.print(f"Username: professional\nPassword: password", style="bold green")
     return
+
+def nuke():
+    explode = """
+                          ____/ (  (    )   )  \___
+                       ((     (   )(    )  )   (   )  )
+                     ((/  ( _(   )   (   _) ) (  () )  )
+                    ( (  ( (_)   ((    (   )  .((_ ) .  )_
+                   ( (  )    (      (  )    )   ) . ) (   )
+                  (  (   (  (   ) (  _  ( _) ).  ) . ) ) ( )
+                  ( (  (   ) (  )   (  ))     ) _)(   )  )  )
+                 ( (  ( \ ) (    (_  ( ) ( )  )   ) )  )) ( )
+                  (  (   (  (   (_ ( ) ( _    )  ) (  )  )   )
+                 ( (  ( (  (  )     (_  )  ) )  _)   ) _( ( )
+                  ((  (   )(    (     _    )   _) _(_ (  (_ )
+                   (_((__(_(__(( ( ( |  ) ) ) )_))__))_)___)
+                   ((__)        \\||lll|l||///          \_))
+                            (   /(/ (  )  ) )\   )
+                          (    ( ( ( | | ) ) )\   )
+                           (   /(| / ( )) ) ) )) )
+                         (     ( ((((_(|)_)))))     )
+                          (      ||\(|(|)|/||     )
+                        (        |(||(||)||||        )
+                          (     //|/l|||)|\\ \     )
+                        (/ / //  /|//||||\\  \ \  \ _)"""
+
+    for x in track(range(25),"Initializing..."):
+        sleep(0.1)      
+    name = Prompt.ask("Enter The Target City's Longitude And Latitude")
+    nuke = Prompt.ask("Which Nuke Would You Like To Use")
+
+    for x in track(range(100), "Bypassing Government Mainframe"):
+        sleep(0.1)
+    for x in track(range(100), f"Gathering Information About {nuke}"):
+        sleep(0.1)
+    with Progress(transient=True) as prog:
+        locate = prog.add_task(f"Locating {nuke}", total=300)
+        gHack = prog.add_task("Hacking Government Systems", total=500)
+        nHack = prog.add_task("Hacking Into Nuclear Controls", total=900)
+        while not prog.finished:
+            prog.advance(locate, 0.9)
+            prog.advance(gHack, 0.5)
+            prog.advance(nHack, 0.3)
+            sleep(0.1)
+    con.print("Government Systems Have Been Hacked And You Now Have Access To Nuke Controls", style="bold green")
+    with Progress(transient=True) as prog:
+        verify = prog.add_task("Verifying Target Location", total=300)
+        pLaunch = prog.add_task("Preparing For Launch", total=600)
+        while not prog.finished:
+            prog.advance(verify, 0.9)
+            prog.advance(pLaunch, 0.5)
+            sleep(0.1)
+    con.print(f"{nuke.title()} Launched To {name}", style="bold green")
+
+    con.print(explode, style="red")
+    sleep(2)
+    con.print("Target Location Successfully Eliminated")
+    return
+
+
     
 
 
@@ -148,12 +236,14 @@ def hack():
         Panel("2. Phishing Attack"),
         Panel("3. WIFI Hacking"),
         Panel("4. Find User IP"),
-        Panel("5. Remote Shutdown/Login")
+        Panel("5. Remote Shutdown/Login"),
+        Panel("6. Deploy Nukes"),
+        Panel("7. Shutdown Nukes")
     )
     con.print(Panel(options),style="bold green")
 
 
-    answer = IntPrompt.ask("Which one do you pick? ",choices=['1','2','3','4','5'])
+    answer = IntPrompt.ask("Which one do you pick? ",choices=['1','2','3','4','5','6'])
 
     if answer == 1:
         web_hacking()
@@ -164,5 +254,10 @@ def hack():
     elif answer == 5:
         remote()
     elif answer == 4:
-        find()                               
+        find()          
+    elif answer == 6:
+        nuke()    
+    elif answer == 7:
+        nukeShutDown()                 
+
 
